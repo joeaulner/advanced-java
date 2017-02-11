@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: josephaulner
-  Date: 2/10/17
-  Time: 8:33 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isErrorPage="true" import="java.io.PrintWriter" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Error</title>
 </head>
 <body>
-
+<h1>Error</h1>
+There was an error somewhere.
+<%@ include file="/WEB-INF/footer.jspf" %>
 </body>
 </html>

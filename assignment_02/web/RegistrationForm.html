@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Registration Page</title>
+</head>
+<body>
+<h1>Registration Page</h1>
+
+<form action="Welcome.jsp?reqType=register" method="post">
+    <table>
+        <tr>
+            <td align="right">First name:</td>
+            <td align="left">
+                <input type="text" name="firstName" length="30">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Surname:</td>
+            <td align="left">
+                <input type="text" name="surname" length="30">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Login Name:</td>
+            <td align="left">
+                <input type="text" name="loginName" length="5">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Age:</td>
+            <td align="left">
+                <input type="text" name="age" length="5">
+            </td>
+        </tr>
+    </table>
+
+    Which topics are you interested in?
+    <br>
+    <label for="topics">Dates and Times</label>
+    <input type="checkbox" name="topics" value="Dates and Times">
+
+    <br>
+    <label for="topics">Strings and StringBuffers</label>
+    <input type="checkbox" name="topics" value="Strings and StringBuffers">
+
+    <br>
+    <label for="topics">Threading</label>
+    <input type="checkbox" name="topics" value="Threading">
+
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+</body>
+</html>

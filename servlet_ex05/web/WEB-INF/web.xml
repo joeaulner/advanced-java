@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>Servlet_Ex05</display-name>
+    <welcome-file-list>
+        <welcome-file>/login.html</welcome-file>
+    </welcome-file-list>
+
+    <filter>
+        <filter-name>FilterA</filter-name>
+        <filter-class>com.apress.servlet.FilterA</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FilterB</filter-name>
+        <filter-class>com.apress.servlet.FilterB</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterA</filter-name>
+        <url-pattern>/Login</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterB</filter-name>
+        <url-pattern>/Login</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.apress.servlet.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+</web-app>

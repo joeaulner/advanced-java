@@ -1,6 +1,5 @@
 package com.apress.servlet;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +10,7 @@ import java.io.PrintWriter;
 public class Login extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -24,7 +23,8 @@ public class Login extends HttpServlet {
             PrintWriter writer = response.getWriter();
             writer.println("<html><body>");
             writer.println("Thank you, " + username + ". You are now logged into the system");
-            String newURL = response.encodeURL("GetSession");
+            // Disabled call to encodeURL to prevent adding sessionId parameter
+            String newURL = "GetSession"; //response.encodeURL("GetSession");
             writer.println("<p>Click <a href=\"" + newURL + "\">here</a> for another servlet</p>");
             writer.println("</body></html>");
             writer.close();

@@ -2,5 +2,6 @@
 *.iml
 
 jboss/
+glassfish3/
 glassfish4/
 jstl/

@@ -6,22 +6,52 @@
 <body>
 <h1>Statement Example</h1>
 
+<c:set var="dataSource" value="jdbc/DataSourceExample"/>
+
 <c:catch var="exception">
-    <sql:update dataSource="jdbc/DataSourceExample" var="count">
-        insert into stock values ('${param.symbol}', '${param.name}')
-    </sql:update>
+    <sql:query var="existingStockResults" dataSource="${dataSource}">
+        select * from stocks where symbol=?
+        <sql:param value="${param.symbol}"/>
+    </sql:query>
+
+    <c:if test="${existingStockResults.rowCount == 0}">
+        <c:set var="existingStock" value="${null}"/>
+        <sql:update dataSource="${dataSource}" var="count">
+            insert into stocks (symbol, name) values (?, ?)
+            <sql:param value="${param.symbol}"/>
+            <sql:param value="${param.name}"/>
+        </sql:update>
+    </c:if>
+    <c:if test="${existingStockResults.rowCount > 0}">
+        <c:set var="existingStock" value="${existingStockResults.rows[0]}"/>
+        <sql:update dataSource="${dataSource}" var="count">
+            update stocks set name=? where symbol=?
+            <sql:param value="${param.name}"/>
+            <sql:param value="${existingStock.symbol}"/>
+        </sql:update>
+    </c:if>
 
     <c:if test="${count < 1}">
-        Data was not inserted into database. Reason for failure is unknown
+        Data was not updated or inserted into database. Reason for failure is unknown
     </c:if>
     <c:if test="${count == 1}">
-        Data successfully inserted into database
+        <c:if test="${existingStock == null}">
+            Data successfully inserted into database
+        </c:if>
+        <c:if test="${existingStock != null}">
+            Data successfully updated in the database
+            <p>
+                <b>Symbol</b>: ${param.symbol}<br>
+                <b>Old Name</b>: ${existingStock.name}<br>
+                <b>New Name</b>: ${param.name}
+            </p>
+        </c:if>
 
-        <sql:query var="stocks" dataSource="jdbc/DataSourceExample">
-            select * from stock
+        <sql:query var="stocks" dataSource="${dataSource}">
+            select * from stocks
         </sql:query>
 
-        <h2>All rows in STOCK table:</h2>
+        <h2>All rows in STOCKS table:</h2>
         <table border="1" width="50%">
             <tr>
                 <th>Symbol</th>

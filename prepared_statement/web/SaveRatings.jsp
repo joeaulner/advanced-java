@@ -9,9 +9,8 @@
     Connection conn = null;
     PreparedStatement ps = null;
     try {
-        conn = JdbcManager.getConnection();
-        String sql = "insert into stock (tickerSymbol, analyst, rating) " +
-                "values (?,?,?)";
+        conn = com.apress.jdbc.JdbcManager.getConnection();
+        String sql = "insert into stock (tickerSymbol, analyst, rating) values (?,?,?)";
         ps = conn.prepareStatement(sql);
         String analystName = request.getParameter("AnalystName");
         ps.setString(2, analystName);
@@ -47,8 +46,8 @@
 <%
         ex.printStackTrace();
     } finally {
-        JdbcManager.close(ps);
-        JdbcManager.close(conn);
+        com.apress.jdbc.JdbcManager.close(ps);
+        com.apress.jdbc.JdbcManager.close(conn);
     }
 %>
 </body>

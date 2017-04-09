@@ -8,7 +8,7 @@
     Statement stmt = null;
     ResultSet rset = null;
     try {
-        conn = JdbcManager.getConnection();
+        conn = com.apress.jdbc.JdbcManager.getConnection();
         stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
         String sqlcmd = "select * from customer";
         rset = stmt.executeQuery(sqlcmd);
@@ -46,9 +46,9 @@ No rows found by query
 <%
         ex.printStackTrace();
     } finally {
-        JdbcManager.close(rset);
-        JdbcManager.close(stmt);
-        JdbcManager.close(conn);
+        com.apress.jdbc.JdbcManager.close(rset);
+        com.apress.jdbc.JdbcManager.close(stmt);
+        com.apress.jdbc.JdbcManager.close(conn);
     }
 %>
 </body>

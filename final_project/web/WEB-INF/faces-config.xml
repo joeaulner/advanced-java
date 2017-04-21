@@ -8,8 +8,12 @@
         <from-view-id>/Login.jsp</from-view-id>
         <navigation-case>
             <from-outcome>loginSuccess</from-outcome>
-            <to-view-id>/LoginSubmit.jsp</to-view-id>
+            <to-view-id>/Home.faces</to-view-id>
             <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>loginFailure</from-outcome>
+            <to-view-id>/Login.faces</to-view-id>
         </navigation-case>
     </navigation-rule>
 

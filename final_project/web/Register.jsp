@@ -25,7 +25,7 @@
         <div class="flex justify-between">
             <h:commandButton value="Register" action="#{user.register}" styleClass="btn btn-default"/>
             <span>
-                Existing user? Login <h:outputLink value="Login.faces">here</h:outputLink>.
+                Already have an account? Login <h:outputLink value="Login.faces">here</h:outputLink>.
             </span>
         </div>
     </h:form>

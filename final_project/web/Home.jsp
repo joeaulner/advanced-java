@@ -3,11 +3,10 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 
-<%--Redirect to login page if user bean hasn't been instantiated--%>
-<c:if test="${user.email == null}">
+<c:if test="${!user.authenticated}">
     <c:redirect url="Login.faces" />
 </c:if>
-<c:if test="${user.email != null}}">
+<c:if test="${user.authenticated}}">
     <html>
     <f:view>
         <head>

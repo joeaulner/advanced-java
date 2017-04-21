@@ -12,11 +12,24 @@
         <h1>Login</h1>
         <div class="form-group">
             <h:outputLabel value="Email" for="email"/>
-            <h:inputText id="email" value="#{user.email}" styleClass="form-control"/>
+            <h:inputText id="email"
+                         value="#{user.email}"
+                         required="true"
+                         requiredMessage="Email required"
+                         styleClass="form-control"/>
+            <h:message for="email" styleClass="text-danger"/>
         </div>
         <div class="form-group">
             <h:outputLabel value="Password" for="password"/>
-            <h:inputSecret id="password" value="#{user.password}" styleClass="form-control"/>
+            <h:inputSecret id="password"
+                           value="#{user.password}"
+                           required="true"
+                           requiredMessage="Password required"
+                           styleClass="form-control"/>
+            <h:message for="password" styleClass="text-danger"/>
+        </div>
+        <div class="form-group">
+            <h:messages globalOnly="true" layout="table" styleClass="text-danger"/>
         </div>
         <div class="flex justify-between">
             <h:commandButton value="Login" action="#{user.login}" styleClass="btn btn-default"/>

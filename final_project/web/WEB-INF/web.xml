@@ -5,6 +5,10 @@
          version="3.1">
     <display-name>CSCI 3830 Final Project</display-name>
 
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -15,7 +19,14 @@
         <url-pattern>*.faces</url-pattern>
     </servlet-mapping>
 
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>
+    <error-page>
+        <location>/ServerError.faces</location>
+    </error-page>
+
+    <resource-ref>
+        <res-ref-name>jdbc/DataSourceExample</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
 </web-app>

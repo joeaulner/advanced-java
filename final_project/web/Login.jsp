@@ -15,7 +15,7 @@
             <h:inputText id="email"
                          value="#{user.email}"
                          required="true"
-                         requiredMessage="Email required"
+                         requiredMessage="Email address required"
                          styleClass="form-control"/>
             <h:message for="email" styleClass="text-danger"/>
         </div>

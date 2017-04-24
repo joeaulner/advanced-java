@@ -11,9 +11,31 @@
             <to-view-id>/Home.faces</to-view-id>
             <redirect/>
         </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Register.jsp</from-view-id>
         <navigation-case>
-            <from-outcome>loginFailure</from-outcome>
-            <to-view-id>/Login.faces</to-view-id>
+            <from-outcome>toRegisterDetails</from-outcome>
+            <to-view-id>/RegisterDetails.faces</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/RegisterDetails.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>registerSuccess</from-outcome>
+            <to-view-id>/Home.faces</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/ChangePassword.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>changePasswordSuccess</from-outcome>
+            <to-view-id>/Home.faces</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
 

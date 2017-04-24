@@ -52,7 +52,7 @@
         <div class="flex justify-between">
             <h:commandButton value="Submit" action="#{user.changePassword}" styleClass="btn btn-default"/>
             <span>
-                <h:outputLink value="Home.faces">Cancel</h:outputLink>.
+                <h:outputLink value="Home.faces">Cancel</h:outputLink>
             </span>
         </div>
     </h:form>
